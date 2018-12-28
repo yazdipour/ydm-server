@@ -1,0 +1,50 @@
+==== Load player script and execute patterns ====
+
+Loading player ID = vflrwQIQw
+signatureFunction = KE
+decipherPatterns = a){a=a.split("");JE.Bh(a,66);JE.Gc(a,2);JE.Bh(a,45);JE.t8(a,19);JE.Gc(a,1);return a.join("")
+Array
+(
+    [0] => Gc:function(a,b){a.splice(0,b)
+    [1] => Bh:function(a){a.reverse()
+    [2] => t8:function(a,b){var c=a[0];a[0]=a[b%a.length];a[b]=c
+)
+
+
+
+==== Retrieved deciphers ====
+
+Array
+(
+    [0] => a=a.split("")
+    [1] => Bh->(66)
+    [2] => Gc->(2)
+    [3] => Bh->(45)
+    [4] => t8->(19)
+    [5] => Gc->(1)
+    [6] => return a.join("")
+)
+Array
+(
+    [Gc] => a.splice(0,b)
+    [Bh] => a.reverse()
+    [t8] => var c=a[0];a[0]=a[b%a.length];a[b]=c
+)
+
+
+
+==== Processing ====
+
+String splitted
+Executing Bh -> 66 (Reversing array)
+Executing Gc -> 2 (Removing array)
+Executing Bh -> 45 (Reversing array)
+Executing t8 -> 19 (Swapping array)
+Executing Gc -> 1 (Removing array)
+String combined
+
+
+
+==== Result ====
+Signature  : 3CDB354ACD6216CD28BC50D2EB95075AEA898BCEE.B0B46A45C22E66A26C2FC7ABF1731524C4C212A8A8
+Deciphered : CDB354ACD6216CD28B350D2EB95075AEA898BCEE.B0B46A45C22E66A26C2FC7ABF1731524C4C212A8
