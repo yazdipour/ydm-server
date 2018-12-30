@@ -13,11 +13,11 @@
         readfile($cache_file); //read Cache file
         // echo '<!-- cached page - '.date('l jS \of F Y h:i:s A', filemtime($cache_file)).', Page : '.$dynamic_url.' -->';
         ob_end_flush(); //Flush and turn off output buffering
-        if (!isset($_GET['f'])) {
-            if (!is_numeric($_GET['id'])) exit('Err 367ATG');
-            $db=new DB();
-            $db->exec_query("UPDATE usrs set nrCanDownload=nrCanDownload-1,nrDownloaded=nrDownloaded+1 where id=".$_GET['id']);
-        }
+        // if (!isset($_GET['f'])) {
+        //     if (!is_numeric($_GET['id'])) exit('Err 367ATG');
+        //     $db=new DB();
+        //     $db->exec_query("UPDATE usrs set nrCanDownload=nrCanDownload-1,nrDownloaded=nrDownloaded+1 where id=".$_GET['id']);
+        // }
         exit(); //no need to proceed further, exit the flow.
     }
     //Turn on output buffering with gzip compression.

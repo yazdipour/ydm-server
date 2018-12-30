@@ -12,10 +12,11 @@ else{
     // }
     $arr=['Id'=>$_GET['i'],'Title'=>$this->get('video_title'),'Duration'=>$this->get('Duration'),'Views'=>$this->get('Views')];
     $arr2=$this->get('formats', []);
-    echo json_encode($arr).'[*]'.json_encode($arr2);
-    if (!isset($_GET['f'])) {
-        if (!is_numeric($_GET['id'])) die('Err 367ATG');
-        $db=new DB();
-        $db->exec_query("UPDATE usrs set nrCanDownload=nrCanDownload-1,nrDownloaded=nrDownloaded+1  where id=".$_GET['id']);
-    }
+    // echo json_encode($arr).'[*]'.json_encode($arr2);
+    echo json_encode([$arr,$arr2]);
+    // if (!isset($_GET['f'])) {
+    //     if (!is_numeric($_GET['id'])) die('Err 367ATG');
+    //     $db=new DB();
+    //     $db->exec_query("UPDATE usrs set nrCanDownload=nrCanDownload-1,nrDownloaded=nrDownloaded+1  where id=".$_GET['id']);
+    // }
 }
