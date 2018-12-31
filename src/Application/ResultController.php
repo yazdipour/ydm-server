@@ -112,8 +112,14 @@ class ResultController extends ControllerAbstract
                 'quality'=> $avail_format->getQuality(),
                 'tag'=> $count
             ];
-            if (isset($_GET['format'])){
-                if ($_GET['format']==$count) {
+            // if (isset($_GET['format'])){
+            //     if ($_GET['format']==$count) {
+            //         header("Location: $directlink");
+            //         exit();
+            //     }else continue;
+            // }
+            if (isset($_GET['tag'])){
+                if ($_GET['tag']==$count) {
                     header("Location: $directlink");
                     exit();
                 }else continue;
@@ -132,8 +138,14 @@ class ResultController extends ControllerAbstract
                     'quality'=> $avail_format->getQuality(),
                     'tag'=> $count
                 ];
-                if ( isset($_GET['format']) ){
-                    if ($_GET['format']==$count) {
+                // if ( isset($_GET['format']) ){
+                //     if ($_GET['format']==$count) {
+                //         header("Location: $directlink");
+                //         exit();
+                //     }else continue;
+                // }
+                if (isset($_GET['tag'])){
+                    if ($_GET['tag']==$count) {
                         header("Location: $directlink");
                         exit();
                     }else continue;
