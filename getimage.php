@@ -39,8 +39,9 @@ if(isset($_GET['i'])) {
     exit;
 }
 
-$szName='default';
-$thumbnail_url="http://i1.ytimg.com/vi/".$my_id."/mqdefault.jpg"; // make image link
+$szName='hqdefault';
+if(isset($_GET['q'])) $szName=$_GET['q'];
+$thumbnail_url="http://i1.ytimg.com/vi/".$my_id."/".$szName.".jpg"; // make image link
 header("Content-Type: image/jpeg");
 readfile($thumbnail_url); 
 ?>
