@@ -14,7 +14,6 @@ if (isset($_GET['q']) && isset($_GET['maxResults'])) {
     $searchResponse = $youtube->search->listSearch('id,snippet', array(
       'type' => 'video','q' => $_GET['q'],'maxResults' => $_GET['maxResults'],
     ));
-    $videos = '';
     foreach ($searchResponse['items'] as $searchResult)
       if ($searchResult['id']['kind'] == 'youtube#video')
           $videos[]= [
