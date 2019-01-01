@@ -11,6 +11,14 @@ else{
     //         echo $this->get('mp3_download_quality');
     // }
 
+    $image = 'http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; 
+    $image = str_replace("getvideo", "getimage", $image);
+    $arr=['Id'=>$_GET['i'],
+            'Title'=>$this->get('video_title'),
+            'Duration'=>$this->get('Duration'), 
+            'Views'=>$this->get('Views'),
+            'Image'=>$image
+        ];
     $arr=['Id'=>$_GET['i'],'Title'=>$this->get('video_title'),'Duration'=>$this->get('Duration'),'Views'=>$this->get('Views')];
     $arr2=$this->get('formats', []);
     echo json_encode(array('info' => $arr,'links'=>$arr2));
