@@ -11,10 +11,8 @@ if (isset($_GET['q']) && isset($_GET['maxResults'])) {
   $client->setHttpClient($guzzleClient);
   $youtube = new Google_Service_YouTube($client);
   try {
-    $q=base64_decode(strrev($_GET['q']));
-    $max=base64_decode($_GET['maxResults']);
     $searchResponse = $youtube->search->listSearch('id,snippet', array(
-      'type' => 'video','q' => $q,'maxResults' => $max,
+      'type' => 'video','q' => $_GET['q'],'maxResults' => $_GET['maxResults'],
     ));
     $videos = '';
     foreach ($searchResponse['items'] as $searchResult)

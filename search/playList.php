@@ -1,7 +1,6 @@
 <?php
 if(!isset($_GET['q']))exit('Invalid PlayListId');
 // $playlistItem='PLxYD9HaZwsI5C0d8CivHvoI_-0rs8XMfc'
-$playlistId=base64_decode(strrev(($_GET['q'])));
 if (!file_exists(__DIR__ . '/vendor/autoload.php')) {
   throw new \Exception('please run "composer require google/apiclient:~2.0" in "' . __DIR__ .'"');
 }
@@ -16,7 +15,7 @@ $videos=[];$nextPageToken='';
 try {
     do {  
         $playlistItemsResponse = $youtube->playlistItems->listPlaylistItems('snippet', array(
-        'playlistId' => $playlistId,'pageToken' => $nextPageToken));
+        'playlistId' => $_GET['q'],'pageToken' => $nextPageToken));
     foreach ($playlistItemsResponse['items'] as $playlistItem) {
         $videos[]=[
         'Title'=>$playlistItem['snippet']['title'], 
