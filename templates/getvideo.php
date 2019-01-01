@@ -19,7 +19,6 @@ else{
             'Views'=>$this->get('Views'),
             'Image'=>$image
         ];
-    $arr=['Id'=>$_GET['i'],'Title'=>$this->get('video_title'),'Duration'=>$this->get('Duration'),'Views'=>$this->get('Views')];
     $arr2=$this->get('formats', []);
     echo json_encode(array('info' => $arr,'links'=>$arr2));
 
