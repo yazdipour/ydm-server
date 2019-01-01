@@ -1,13 +1,12 @@
 <?php
 if(!isset($_GET['q']))exit('Invalid PlayListId');
-// $playlistItem='PLxYD9HaZwsI5C0d8CivHvoI_-0rs8XMfc'
 if (!file_exists(__DIR__ . '/vendor/autoload.php')) {
   throw new \Exception('please run "composer require google/apiclient:~2.0" in "' . __DIR__ .'"');
 }
 require_once __DIR__ . '/vendor/autoload.php';
 
 $client = new Google_Client();
-$client->setDeveloperKey('AIzaSyAPjtKvTF11DHZiNyCsWHKOwnMuToHZTgE');
+$client->setDeveloperKey('AIzaSyDUjl0O50vi42JIx8ytEksu9ffjDt84XcA');
 $guzzleClient = new \GuzzleHttp\Client(array( 'curl' => array( CURLOPT_SSL_VERIFYPEER => false, ), 'headers' => ['Referer' => '127.0.0.1' ]));        
 $client->setHttpClient($guzzleClient);
 $youtube = new Google_Service_YouTube($client);
