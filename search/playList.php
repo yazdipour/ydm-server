@@ -6,7 +6,7 @@ if (!file_exists(__DIR__ . '/vendor/autoload.php')) {
 require_once __DIR__ . '/vendor/autoload.php';
 
 $client = new Google_Client();
-$client->setDeveloperKey('AIzaSyDUjl0O50vi42JIx8ytEksu9ffjDt84XcA');
+$client->setDeveloperKey('AIzaSyAPjtKvTF11DHZiNyCsWHKOwnMuToHZTgE');
 $guzzleClient = new \GuzzleHttp\Client(array( 'curl' => array( CURLOPT_SSL_VERIFYPEER => false, ), 'headers' => ['Referer' => '127.0.0.1' ]));        
 $client->setHttpClient($guzzleClient);
 $youtube = new Google_Service_YouTube($client);
@@ -17,9 +17,9 @@ try {
         'playlistId' => $_GET['q'],'pageToken' => $nextPageToken));
     foreach ($playlistItemsResponse['items'] as $playlistItem) {
         $videos[]=[
-        'Title'=>$playlistItem['snippet']['title'], 
-        'Id'=>$playlistItem['snippet']['resourceId']['videoId'],
-        'Channel'=>$playlistItem['snippet']['channelTitle']
+            'Title'=>$playlistItem['snippet']['title'], 
+            'Id'=>$playlistItem['snippet']['resourceId']['videoId'],
+            'Channel'=>$playlistItem['snippet']['channelTitle']
         ];
     }
     $nextPageToken = $playlistItemsResponse['nextPageToken'];
