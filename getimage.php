@@ -7,6 +7,9 @@
          * Start Thumbnail (120x90px) :   http://i1.ytimg.com/vi/VIDEO_ID/1.jpg
          * Middle Thumbnail (120x90px) :   http://i1.ytimg.com/vi/VIDEO_ID/2.jpg
          * End Thumbnail (120x90px) :   http://i1.ytimg.com/vi/VIDEO_ID/3.jpg
+
+         * sddefault.jpg","width": 640,"height": 480
+         * maxresdefault.jpg","width": 1280,"height": 720
          */
          // getimage.php?i=xxx
 if(isset($_GET['i'])) {
