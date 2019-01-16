@@ -11,10 +11,13 @@ $guzzleClient = new \GuzzleHttp\Client(array( 'curl' => array( CURLOPT_SSL_VERIF
 $client->setHttpClient($guzzleClient);
 $youtube = new Google_Service_YouTube($client);
 $videos=[];$nextPageToken='';
+$playlistId=$_GET['q'];
+if(strstr($playlistId,'list='))
+    $playlistId = substr($playlistId,stripos($playlistId,'list=')+5);
 try {
     do {  
         $playlistItemsResponse = $youtube->playlistItems->listPlaylistItems('snippet', array(
-        'playlistId' => $_GET['q'],'pageToken' => $nextPageToken));
+        'playlistId' => $playlistId,'pageToken' => $nextPageToken));
     foreach ($playlistItemsResponse['items'] as $playlistItem) {
         $videos[]=[
             'Title'=>$playlistItem['snippet']['title'], 
@@ -26,6 +29,7 @@ try {
     } while ($nextPageToken <> '');
     $videos=json_encode($videos);
     header('Content-Type: application/json');
+    header('Access-Control-Allow-Origin: *');
     echo $videos;
 } catch (Exception $e) {
     echo "Err!"; 

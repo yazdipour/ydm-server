@@ -64,6 +64,7 @@ class ImageController extends ControllerAbstract
 		$thumbnail_url = "http://i1.ytimg.com/vi/" . $my_id . "/$szName.jpg"; // make image link
 
 		header("Content-Type: image/jpeg"); // set headers
+		header('Access-Control-Allow-Origin: *');
 		readfile($thumbnail_url); // show image
 	}
 }
