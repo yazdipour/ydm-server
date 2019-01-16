@@ -116,7 +116,8 @@ class DownloadController extends ControllerAbstract
 			header('Expires: 0');
 			header('Content-Length: '.$size);
 			header('Pragma: no-cache');
-
+			header('Access-Control-Allow-Origin: *');
+			
 			if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE)
 			{
 				header('Cache-Control: must-revalidate, post-check=0, pre-check=0');

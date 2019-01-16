@@ -20,6 +20,8 @@ else{
             'Image'=>$image
         ];
     $arr2=$this->get('formats', []);
+    header('Content-Type: application/json');
+    header('Access-Control-Allow-Origin: *');
     echo json_encode(array('info' => $arr,'links'=>$arr2));
 
     // if (!isset($_GET['f'])) {

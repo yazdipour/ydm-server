@@ -22,6 +22,7 @@ if (isset($_GET['q']) && isset($_GET['maxResults'])) {
             'Channel'=>$searchResult['snippet']['channelTitle']
             ];
     $videos=json_encode($videos);
+    header('Access-Control-Allow-Origin: *');
     header('Content-Type: application/json');
     echo $videos;
   } catch (Google_Service_Exception $e) {
